@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+       th:replace="~{user/base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <h1>Home Page</h1> 
+    <section>
+				<div class="container-fluid p-3">
+			<div class="col-md-10 offset-md-1">
+				<div class="card paint-card">
+					<h3 class="text-center">Add Notes</h3>
+					<div class="text-center" role="alert">
+					    <h4 th:if="${session.msg == 'Notes Added Successfully'}" class="text-success" th:text="${session.msg}"></h4>
+					   
+					</div>
+
+
+					<div class="card-body">
+						<form th:action="@{/user/saveNotes}" method="post">
+							<div class="form-group">
+								<label>Enter Title</label> <input type="text"
+									class="form-control" name="title">
+							</div>
+							<div class="form-group">
+								<label>Enter Description</label>
+								<textarea rows="12" cols="" name="content" class="form-control"></textarea>
+							</div>
+							<div class="text-center">
+								<button class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	
+   
+</body>
+</html>
